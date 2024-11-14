@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="questionRepository" class="com.lukman.otus.repo.impl.QuestionRepositoryImpl">
+        <constructor-arg name="questionUtils" ref="questionUtils"/>
+    </bean>
+
+    <bean id="questionService" class="com.lukman.otus.service.impl.QuestionServiceImpl">
+        <constructor-arg name="questionRepository" ref="questionRepository"/>
+    </bean>
+
+    <bean id="questionUtils" class="com.lukman.otus.utils.QuestionUtils"/>
+</beans>
